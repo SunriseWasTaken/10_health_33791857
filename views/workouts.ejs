@@ -7,12 +7,11 @@
   <%- include('partials/sidebar') %>
   
   <main class="main-content">
-    <h1>Search Results</h1>
+    <h1>My Workouts</h1>
     
     <div class="dashboard-grid">
       <div class="card card-large">
-        <h2>Results for "<%= typeof searchText !== 'undefined' && searchText ? searchText : '' %>"</h2>
-        
+        <h2>Workout History</h2>
         <% if (typeof workouts !== 'undefined' && workouts && workouts.length > 0) { %>
           <ul class="workout-list">
             <% workouts.forEach(workout => { %>
@@ -27,13 +26,14 @@
             <% }); %>
           </ul>
         <% } else { %>
-          <p>No workouts found matching your search.</p>
+          <p>No workouts logged yet. <a href="/add-workout">Log your first workout!</a></p>
         <% } %>
       </div>
       
       <div class="card">
-        <h2>Search Again</h2>
-        <a href="/search" class="btn btn-secondary" style="width: 100%; text-align: center; display: block;">New Search</a>
+        <h2>Quick Actions</h2>
+        <p style="text-align: left; margin-bottom: 20px;">Add a new workout to track your fitness progress.</p>
+        <a href="/add-workout" class="btn" style="width: 100%; text-align: center; display: block;">Add New Workout</a>
       </div>
     </div>
   </main>

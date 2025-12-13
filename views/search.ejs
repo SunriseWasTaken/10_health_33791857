@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/header') %>
+</head>
+<body>
+  <%- include('partials/sidebar') %>
+  
+  <main class="main-content">
+    <h1>Search Workouts</h1>
+    
+    <div class="dashboard-grid">
+      <div class="card card-large">
+        <h2>Search</h2>
+        <form action="/search-results" method="GET">
+          <label for="search_text">Search for workouts</label>
+          <input 
+            type="text" 
+            id="search_text" 
+            name="search_text" 
+            placeholder="Enter exercise name or notes..."
+            value="<%= typeof searchText !== 'undefined' && searchText ? searchText : '' %>"
+          />
+          <button type="submit" class="btn">Search</button>
+        </form>
+      </div>
+    </div>
+  </main>
+  
+  <%- include('partials/footer') %>
+</body>
+</html>
+

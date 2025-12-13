@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/header') %>
+</head>
+<body>
+  <%- include('partials/sidebar') %>
+  
+  <main class="main-content">
+    <h1>Log Workout</h1>
+    
+    <div class="dashboard-grid">
+      <div class="card card-large">
+        <h2>Workout Details</h2>
+        <form method="POST" action="/add-workout">
+          <label for="exercise">Exercise Name</label>
+          <input type="text" id="exercise" name="exercise" required placeholder="e.g., Running, Weight Lifting" />
+          
+          <label for="duration">Duration (minutes)</label>
+          <input type="number" id="duration" name="duration" required min="1" placeholder="30" />
+          
+          <label for="date">Date</label>
+          <input type="date" id="date" name="date" value="<%= new Date().toISOString().split('T')[0] %>" />
+          
+          <label for="notes">Notes (optional)</label>
+          <textarea id="notes" name="notes" rows="3" placeholder="Any additional notes about your workout..."></textarea>
+          
+          <button type="submit" class="btn">Log Workout</button>
+        </form>
+      </div>
+      
+      <div class="card">
+        <h2>Quick Links</h2>
+        <p style="text-align: left; margin-bottom: 20px;">Navigate to other sections of the app.</p>
+        <a href="/workouts" class="btn btn-secondary" style="width: 100%; text-align: center; display: block; margin-bottom: 12px;">View All Workouts</a>
+        <a href="/" class="btn btn-secondary" style="width: 100%; text-align: center; display: block;">Back to Dashboard</a>
+      </div>
+    </div>
+  </main>
+  
+  <%- include('partials/footer') %>
+</body>
+</html>
+

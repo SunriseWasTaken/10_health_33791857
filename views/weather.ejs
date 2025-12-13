@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/header') %>
+</head>
+<body>
+  <%- include('partials/sidebar') %>
+  
+  <main class="main-content">
+    <h1>Weather</h1>
+    
+    <div class="dashboard-grid">
+      <div class="card card-large">
+        <h2>Check Weather</h2>
+        <form method="POST" action="/weather">
+          <label for="city">City Name</label>
+          <input 
+            type="text" 
+            id="city" 
+            name="city" 
+            required 
+            placeholder="e.g., London, New York, Tokyo"
+            value="<%= typeof city !== 'undefined' && city ? city : '' %>"
+          />
+          <button type="submit" class="btn">Get Weather</button>
+        </form>
+        
+        <% if (typeof error !== 'undefined' && error) { %>
+          <div style="margin-top: 20px; padding: 16px; background: rgba(255, 120, 92, 0.1); border: 1px solid rgba(255, 120, 92, 0.3); border-radius: 10px; color: var(--orange);">
+            <strong>Error:</strong> <%= error %>
+          </div>
+        <% } %>
+      </div>
+      
+      <% if (typeof weather !== 'undefined' && weather) { %>
+        <div class="card card-large">
+          <h2>Current Weather</h2>
+          <div style="text-align: left;">
+            <p style="font-size: 1.2rem; margin-bottom: 20px;">
+              <strong>Location:</strong> <%= weather.location %>
+            </p>
+            <p style="font-size: 2rem; color: var(--peach); margin: 20px 0;">
+              <strong><%= weather.temperature %>°C</strong>
+            </p>
+            <p style="margin-bottom: 12px;">
+              <strong>Condition:</strong> <%= weather.condition %>
+            </p>
+            <p style="margin-bottom: 12px; text-transform: capitalize;">
+              <%= weather.description %>
+            </p>
+            <p style="margin-bottom: 12px;">
+              <strong>Feels like:</strong> <%= weather.feelsLike %>°C
+            </p>
+            <p style="margin-bottom: 12px;">
+              <strong>Humidity:</strong> <%= weather.humidity %>%
+            </p>
+            <p style="margin-bottom: 12px;">
+              <strong>Wind Speed:</strong> <%= weather.windSpeed %> m/s
+            </p>
+          </div>
+        </div>
+      <% } else { %>
+        <div class="card">
+          <h2>Outdoor Workout Tips</h2>
+          <p style="text-align: left; margin-bottom: 20px;">Check the weather before heading out for your run or outdoor workout.</p>
+          <p style="text-align: left;">Ideal conditions: Clear skies, moderate temperature, and low wind.</p>
+        </div>
+      <% } %>
+    </div>
+  </main>
+  
+  <%- include('partials/footer') %>
+</body>
+</html>

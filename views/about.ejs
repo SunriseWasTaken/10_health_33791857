@@ -1,11 +1,45 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>About</title>
-  <link rel="stylesheet" href="/css/styles.css">
+  <%- include('partials/header') %>
 </head>
 <body>
-  <h1>About <%= appName %></h1>
-  <p>This app helps you log and track workouts.</p>
+  <%- include('partials/sidebar') %>
+  
+  <main class="main-content">
+    <h1>About PulseLog</h1>
+    
+    <div class="dashboard-grid">
+      <div class="card card-large">
+        <h2>About</h2>
+        <p>This app helps you log and track workouts.</p>
+        <p>Built with Express, EJS, MySQL, and a passion for fitness tracking.</p>
+      </div>
+      
+      <div class="card">
+        <h2>Features</h2>
+        <ul style="list-style: none; padding: 0; text-align: left;">
+          <li style="margin-bottom: 16px; display: flex; align-items: center; gap: 12px;">
+            <span style="color: var(--peach); font-size: 1.2rem;">✓</span>
+            <span>Track your workouts</span>
+          </li>
+          <li style="margin-bottom: 16px; display: flex; align-items: center; gap: 12px;">
+            <span style="color: var(--peach); font-size: 1.2rem;">✓</span>
+            <span>Monitor your progress</span>
+          </li>
+          <li style="margin-bottom: 16px; display: flex; align-items: center; gap: 12px;">
+            <span style="color: var(--peach); font-size: 1.2rem;">✓</span>
+            <span>Check weather conditions</span>
+          </li>
+          <li style="margin-bottom: 16px; display: flex; align-items: center; gap: 12px;">
+            <span style="color: var(--peach); font-size: 1.2rem;">✓</span>
+            <span>Dashboard overview</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </main>
+  
+  <%- include('partials/footer') %>
 </body>
 </html>

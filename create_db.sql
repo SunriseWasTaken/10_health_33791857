@@ -1,0 +1,16 @@
+-- PulseLog Database Schema
+-- Lab 6abc: MySQL Setup
+
+CREATE DATABASE IF NOT EXISTS pulselog;
+USE pulselog;
+
+-- Workouts table
+CREATE TABLE IF NOT EXISTS workouts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    exercise VARCHAR(255) NOT NULL,
+    workout_date DATE NOT NULL,
+    duration INT NOT NULL,
+    notes TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+

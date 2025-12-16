@@ -1,9 +1,6 @@
--- PulseLog Database Schema
+CREATE DATABASE IF NOT EXISTS health;
+USE health;
 
-CREATE DATABASE IF NOT EXISTS pulselog;
-USE pulselog;
-
--- Workouts table
 CREATE TABLE IF NOT EXISTS workouts (
     id INT AUTO_INCREMENT PRIMARY KEY,
     exercise VARCHAR(255) NOT NULL,

@@ -13,10 +13,10 @@ const port = process.env.PORT || 8000;
 
 // MySQL connection pool (ready for use)
 const db = mysql.createPool({
-  host: process.env.DB_HOST || 'localhost',
-  user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || '',
-  database: process.env.DB_NAME || 'pulselog',
+  host: process.env.HEALTH_HOST || 'localhost',
+  user: process.env.HEALTH_USER || 'root',
+  password: process.env.HEALTH_PASSWORD || '',
+  database: process.env.HEALTH_NAME || 'health',
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
@@ -55,7 +55,10 @@ app.use((req, res, next) => {
 
 // routes
 const mainRoutes = require("./routes/main");
+const weatherRoutes = require("./routes/weather");
+
 app.use('/', mainRoutes);
+app.use('/weather', weatherRoutes);
 
 // web app listening
 app.listen(port, () => console.log(`App running on port ${port}`))

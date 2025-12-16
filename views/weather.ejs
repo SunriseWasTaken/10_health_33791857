@@ -12,7 +12,7 @@
     <div class="dashboard-grid">
       <div class="card card-large">
         <h2>Check Weather</h2>
-        <form method="POST" action="/weather">
+        <form method="GET" action="/weather">
           <label for="city">City Name</label>
           <input 
             type="text" 
@@ -27,8 +27,7 @@
         
         <% if (typeof error !== 'undefined' && error) { %>
           <div style="margin-top: 20px; padding: 16px; background: rgba(255, 120, 92, 0.1); border: 1px solid rgba(255, 120, 92, 0.3); border-radius: 10px; color: var(--orange);">
-            <strong>Error:</strong> <%= error %>
-          </div>
+            <strong>Couldn’t find that city:</strong> <%= error %>          </div>
         <% } %>
       </div>
       
@@ -46,8 +45,7 @@
               <strong>Condition:</strong> <%= weather.condition %>
             </p>
             <p style="margin-bottom: 12px; text-transform: capitalize;">
-              <%= weather.description %>
-            </p>
+                <strong>Description:</strong> <%= weather.description %>            </p>
             <p style="margin-bottom: 12px;">
               <strong>Feels like:</strong> <%= weather.feelsLike %>°C
             </p>

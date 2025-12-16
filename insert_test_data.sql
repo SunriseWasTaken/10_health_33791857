@@ -1,8 +1,5 @@
--- PulseLog Test Data
+USE health;
 
-USE pulselog;
-
--- Insert sample workouts
 INSERT INTO workouts (exercise, workout_date, duration, notes) VALUES
 ('Running', '2024-01-15', 30, 'Morning run in the park'),
 ('Weight Lifting', '2024-01-16', 45, 'Upper body workout'),

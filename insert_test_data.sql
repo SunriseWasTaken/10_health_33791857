@@ -1,5 +1,4 @@
 -- PulseLog Test Data
--- Lab 6abc: Insert Test Data
 
 USE pulselog;
 

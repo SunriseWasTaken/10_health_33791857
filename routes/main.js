@@ -5,7 +5,6 @@ const router = express.Router();
 // home / dashboard
 router.get("/", async (req, res) => {
   try {
-    // Get recent workouts for dashboard (Lab 6abc pattern)
     const [recentWorkouts] = await req.app.locals.db.execute(
       'SELECT * FROM workouts ORDER BY workout_date DESC, created_at DESC LIMIT 5'
     );
@@ -39,7 +38,6 @@ router.get("/about", (req, res) => {
 // workouts dashboard
 router.get("/workouts", async (req, res) => {
   try {
-    // Query workouts from database (Lab 6abc pattern)
     const [workouts] = await req.app.locals.db.execute(
       'SELECT * FROM workouts ORDER BY workout_date DESC, created_at DESC'
     );
@@ -76,7 +74,6 @@ router.post("/add-workout", async (req, res) => {
   const { exercise, duration, date, notes } = req.body;
   
   try {
-    // Insert workout into database using prepared statement (Lab 6abc pattern)
     await req.app.locals.db.execute(
       'INSERT INTO workouts (exercise, workout_date, duration, notes) VALUES (?, ?, ?, ?)',
       [exercise, date || new Date().toISOString().split('T')[0], parseInt(duration), notes || null]
@@ -110,7 +107,6 @@ router.get("/search-results", async (req, res) => {
   }
   
   try {
-    // Search workouts using LIKE pattern (Lab 6e pattern)
     const [workouts] = await req.app.locals.db.execute(
       'SELECT * FROM workouts WHERE exercise LIKE ? OR notes LIKE ? ORDER BY workout_date DESC',
       [`%${searchText}%`, `%${searchText}%`]
@@ -177,8 +173,7 @@ router.post("/weather", (req, res) => {
     req.session.weatherError = "Weather API key not configured. Please set WEATHER_API_KEY in .env file";
     return res.redirect("/weather");
   }
-  
-  // OpenWeatherMap API endpoint (Lab 9a format)
+
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&APPID=${apiKey}&units=metric`;
   
   https.get(url, (apiRes) => {

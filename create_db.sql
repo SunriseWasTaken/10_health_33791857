@@ -1,5 +1,4 @@
 -- PulseLog Database Schema
--- Lab 6abc: MySQL Setup
 
 CREATE DATABASE IF NOT EXISTS pulselog;
 USE pulselog;

@@ -1,0 +1,8 @@
+home=https://www.doc.gold.ac.uk/usr/392/
+about=https://www.doc.gold.ac.uk/usr/392/about
+workouts=https://www.doc.gold.ac.uk/usr/392/workouts
+add_workout=https://www.doc.gold.ac.uk/usr/392/add-workout
+search=https://www.doc.gold.ac.uk/usr/392/search
+weather=https://www.doc.gold.ac.uk/usr/392/weather
+login=https://www.doc.gold.ac.uk/usr/392/login
+signup=https://www.doc.gold.ac.uk/usr/392/signup

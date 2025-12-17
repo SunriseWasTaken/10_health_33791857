@@ -62,7 +62,7 @@ const weatherRoutes = require("./routes/weather");
 app.use('/weather', weatherRoutes);
 
 // Load route for login
-const authRoutes = require("./routes/auth");
+const authRoutes = require("./routes/users");
 app.use("/", authRoutes);
 
 // web app listening

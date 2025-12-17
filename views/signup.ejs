@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/header') %>
+</head>
+<body>
+  <%- include('partials/sidebar') %>
+
+  <main class="main-content">
+    <div class="dashboard-header">
+      <h1>Create Your Account</h1>
+      <p class="subtitle">Join PulseLog to keep your health and fitness data in one place.</p>
+    </div>
+
+    <div class="dashboard-grid">
+      <div class="card card-large">
+        <h2>Sign Up</h2>
+
+        <% if (error) { %>
+          <div
+            style="
+              padding: 12px 16px;
+              border-radius: 10px;
+              background: rgba(255, 122, 92, 0.15);
+              border: 1px solid rgba(255, 122, 92, 0.4);
+              color: #ffb88c;
+              margin-bottom: 12px;
+              font-weight: 600;
+            ">
+            <%= error %>
+          </div>
+        <% } %>
+
+        <form method="POST" action="/signup">
+          <label for="username">Username</label>
+          <input
+            id="username"
+            name="username"
+            type="text"
+            placeholder="Choose a username"
+            value="<%= (form && form.username) ? form.username : '' %>"
+            minlength="5"
+            maxlength="20"
+            required
+            autocomplete="username"
+          />
+
+          <label for="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="you@example.com"
+            value="<%= (form && form.email) ? form.email : '' %>"
+            required
+            autocomplete="email"
+          />
+
+          <label for="password">Password</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Must include upper, lower, number, symbol"
+            required
+            autocomplete="new-password"
+          />
+
+          <label for="confirm">Confirm Password</label>
+          <input
+            id="confirm"
+            name="confirm"
+            type="password"
+            placeholder="Re-enter your password"
+            required
+            autocomplete="new-password"
+          />
+
+          <button type="submit" class="btn">Create Account</button>
+        </form>
+
+        <p style="margin-top: 16px; color: var(--muted);">
+          Already registered?
+          <a href="/login" style="color: var(--peach); font-weight: 600;">Log in</a>.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Why Join?</h2>
+        <ul style="padding-left: 18px; line-height: 1.7;">
+          <li>Track daily workouts and notes</li>
+          <li>Search through your exercise history</li>
+          <li>Get weather insights for outdoor sessions</li>
+        </ul>
+        <p style="color: var(--muted); margin-top: auto;">
+          Password policy: 8+ chars with lowercase, uppercase, number, and special character.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

@@ -7,3 +7,5 @@ INSERT INTO workouts (exercise, workout_date, duration, notes) VALUES
 ('Swimming', '2024-01-18', 30, 'Pool session'),
 ('Yoga', '2024-01-19', 45, 'Evening yoga class');
 
+INSERT INTO users (username, password)
+VALUES ('gold', '$2b$10$Bv65sQOu1yZjQrhJBfAE3esM3Eu7Eg.Mqr/D.CuE4tLSZYhzglTTm');

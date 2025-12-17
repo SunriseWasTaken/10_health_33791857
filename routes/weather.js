@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
     return res.render('weather', { city: '', weather: null, error: null });
   }
 
-  const apiKey = process.env.OPENWEATHER_API_KEY;
+  const apiKey = process.env.WEATHER_API_KEY;
 
   if (!apiKey || apiKey === 'your_key_here') {
     return res.render('weather', {
@@ -35,7 +35,7 @@ router.get('/', (req, res) => {
       return res.render('weather', {
         city,
         weather: null,
-        error: 'City not found'
+        error: 'Please check the spelling and try again.'
       });
     }
 

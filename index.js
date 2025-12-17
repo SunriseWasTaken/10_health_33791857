@@ -16,7 +16,7 @@ const db = mysql.createPool({
   host: process.env.HEALTH_HOST || 'localhost',
   user: process.env.HEALTH_USER || 'root',
   password: process.env.HEALTH_PASSWORD || '',
-  database: process.env.HEALTH_NAME || 'health',
+  database: process.env.HEALTH_DATABASE || 'health',
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
@@ -57,8 +57,8 @@ app.use((req, res, next) => {
 const mainRoutes = require("./routes/main");
 const weatherRoutes = require("./routes/weather");
 
-app.use('/', mainRoutes);
 app.use('/weather', weatherRoutes);
+app.use('/', mainRoutes);
 
 // web app listening
 app.listen(port, () => console.log(`App running on port ${port}`))

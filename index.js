@@ -53,12 +53,17 @@ app.use((req, res, next) => {
   next();
 });
 
-// routes
+// Load route handlers
 const mainRoutes = require("./routes/main");
-const weatherRoutes = require("./routes/weather");
-
-app.use('/weather', weatherRoutes);
 app.use('/', mainRoutes);
+
+// Load route for API for weather
+const weatherRoutes = require("./routes/weather");
+app.use('/weather', weatherRoutes);
+
+// Load route for login
+const authRoutes = require("./routes/auth");
+app.use("/", authRoutes);
 
 // web app listening
 app.listen(port, () => console.log(`App running on port ${port}`))

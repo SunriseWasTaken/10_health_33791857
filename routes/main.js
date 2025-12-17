@@ -2,6 +2,11 @@ const express = require("express");
 const https = require("https");
 const router = express.Router();
 
+const redirectLogin = (req, res, next) => {
+    if (!req.session.user) return res.redirect("/login");
+    next();
+};
+
 // home / dashboard
 router.get("/", async (req, res) => {
   try {
@@ -36,7 +41,7 @@ router.get("/about", (req, res) => {
 });
 
 // workouts dashboard
-router.get("/workouts", async (req, res) => {
+router.get("/workouts", redirectLogin, async (req, res) => {
   try {
     const [workouts] = await req.app.locals.db.execute(
       'SELECT * FROM workouts ORDER BY workout_date DESC, created_at DESC'
@@ -61,7 +66,7 @@ router.get("/workouts", async (req, res) => {
 });
 
 // add workout form
-router.get("/add-workout", (req, res) => {
+router.get("/add-workout", redirectLogin, (req, res) => {
   res.render("add-workout", {
     pageTitle: "Log Workout",
     current: "add",
@@ -70,7 +75,7 @@ router.get("/add-workout", (req, res) => {
 });
 
 // handle form POST
-router.post("/add-workout", async (req, res) => {
+router.post("/add-workout", redirectLogin, async (req, res) => {
   const { exercise, duration, date, notes } = req.body;
   
   try {

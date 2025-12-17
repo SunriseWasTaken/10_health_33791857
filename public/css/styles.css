@@ -207,7 +207,7 @@ body {
 }
 
 .dashboard-header .subtitle {
-    color: var(--muted);
+    color: var(--text);
     font-size: 1.1rem;
     margin: 0;
     line-height: 1.6;
@@ -313,6 +313,36 @@ a:hover {
     color: var(--peach);
 }
 
+.alert-message {
+    padding: 12px 16px;
+    border-radius: 10px;
+    background: rgba(255, 122, 92, 0.15);
+    border: 1px solid rgba(255, 122, 92, 0.4);
+    color: #ffb88c;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.auth-helper {
+    margin-top: 16px;
+    color: var(--muted);
+}
+
+.auth-link {
+    color: var(--peach);
+    font-weight: 600;
+}
+
+.feature-list {
+    padding-left: 18px;
+    line-height: 1.7;
+}
+
+.muted-note {
+    color: var(--muted);
+    margin-top: auto;
+}
+
 /* Buttons */
 .btn {
     display: inline-block;
@@ -380,6 +410,7 @@ button[type="submit"] {
 
 /* Progress Ring (for dashboard) */
 .progress-ring {
+    --percent: 0;
     width: 120px;
     height: 120px;
     margin: 20px auto;
@@ -409,6 +440,31 @@ button[type="submit"] {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--peach);
+}
+
+.progress-68 { --percent: 68; }
+.progress-75 { --percent: 75; }
+
+.card-note {
+    text-align: center;
+    margin-top: 16px;
+}
+
+.card-note-muted {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.card-text-left {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.btn-block {
+    width: 100%;
+    text-align: center;
+    display: block;
 }
 
 /* Workout List */
@@ -452,7 +508,7 @@ footer {
     color: var(--muted);
     font-size: 0.9rem;
     width: calc(100% - 240px);
-    background: #141526 !important; /* Fully opaque background - prevents any transparency */
+    background: #141526 !important;
     flex-shrink: 0;
     position: relative;
     z-index: 100;

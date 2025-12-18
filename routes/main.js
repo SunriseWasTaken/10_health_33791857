@@ -3,8 +3,11 @@ const https = require("https");
 const router = express.Router();
 
 const redirectLogin = (req, res, next) => {
-    if (!req.session.user) return res.redirect("/login");
-    next();
+  if (!req.session.userId) {
+    res.redirect("./login"); // redirect to the login page
+  } else {
+    next(); // move to the next middleware function
+  }
 };
 
 // home / dashboard

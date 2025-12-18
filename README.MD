@@ -1,4 +1,4 @@
-# 🏋️ FitLog – Health & Fitness Tracker
+# 🏋️ FitLog – Fitness Tracker
 
 Dynamic Web Applications – Final Lab Assignment
 
@@ -18,7 +18,6 @@ Database Persistence | User and workout data stored in a MySQL database | create
 Responsive Styling | Custom CSS styling with sidebar navigation and dashboard layout | public/css/styles.css
 Deployment | Application deployed on the Goldsmiths virtual server | index.js
 
----
 
 ## 🗄️ Database
 
@@ -33,7 +32,6 @@ Database setup scripts:
 
 A default user is inserted.
 
----
 
 ## 🚀 How to Run the App
 

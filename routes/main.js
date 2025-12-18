@@ -97,7 +97,7 @@ router.post("/add-workout", redirectLogin, async (req, res) => {
 });
 
 // search page
-router.get("/search", (req, res) => {
+router.get("/search", redirectLogin, (req, res) => {
   res.render("search", {
     pageTitle: "Search",
     current: "search",

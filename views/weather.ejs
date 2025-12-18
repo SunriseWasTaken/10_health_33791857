@@ -33,18 +33,19 @@
       <% if (typeof weather !== 'undefined' && weather) { %>
         <div class="card card-large">
           <h2>Current Weather</h2>
-              <strong>Location:</strong> <%= weather.location %>
+              <strong>Location:</strong> <%= weather.location %><br>
             </p>
-              <strong>Temperature:</strong><%= weather.temperature %>°C
+              <strong>Temperature:</strong><%= weather.temperature %>°C<br>
             </p>
-              <strong>Condition:</strong> <%= weather.condition %>
+              <strong>Condition:</strong> <%= weather.condition %><br>
             </p>
-              <strong>Description:</strong> <%= weather.description %>            </p>
-              <strong>Feels like:</strong> <%= weather.feelsLike %>°C
+              <strong>Description:</strong> <%= weather.description %><br>
             </p>
-              <strong>Humidity:</strong> <%= weather.humidity %>%
+              <strong>Feels like:</strong> <%= weather.feelsLike %>°C<br>
             </p>
-              <strong>Wind Speed:</strong> <%= weather.windSpeed %> m/s
+              <strong>Humidity:</strong> <%= weather.humidity %>%<br>
+            </p>
+              <strong>Wind Speed:</strong> <%= weather.windSpeed %> m/s<br>
             </p>
           </div>
         </div>
